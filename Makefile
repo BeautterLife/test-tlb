@@ -2,7 +2,9 @@ test-tlb: test-tlb.c
 	gcc -g -Wall -O test-tlb.c -o test-tlb -lm
 
 run: test-tlb
-	for i in 4k 8k 16k 32k 64k 128k 256k 512k 1M 2M 4M 6M 8M 16M 32M 64M 128M 256M ; do echo -n "$$i,"; ./test-tlb -r $$i 64; done
+	for i in 1k 2k 4k 8k 16k 32k 64k 128k 256k 512k 1M 2M 4M 8M 16M 32M 64M 128M 256M 512M 1024M; do echo -n "$$i,"; ./test-tlb -r $$i 64; done
+run: test-tlb	
+	for i in 1k 2k 4k 8k 16k 32k 64k 128k 256k 512k 1M 2M 4M 8M 16M 32M 64M 128M 256M 512M 1024M; do echo -n "$$i,"; ./test-tlb -r $$i 64; done > ss.xls
 
 #
 # 15485863 is a random prime number that is used as a index into
